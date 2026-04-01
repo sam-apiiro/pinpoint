@@ -15,6 +15,7 @@ import NotFound from '@/pages/NotFound';
 import ErrorAnalysis from '@/pages/ErrorAnalysis';
 import { errorAnalysisRouteLoader } from './loader/errorAnalysis';
 import ApiCheck from '@/pages/ApiCheck';
+import Register from '@/pages/Register';
 import { urlStatisticRouteLoader } from './loader/urlStatistic';
 import UrlStatistic from '@/pages/UrlStatistic';
 import SystemMetric from '@/pages/SystemMetric';
@@ -68,6 +69,10 @@ const router = createBrowserRouter(
       path: `${APP_PATH.API_CHECK}`,
       element: <ApiCheck />,
       // loader: defaultLoader,
+    },
+    {
+      path: `${APP_PATH.REGISTER}`,
+      element: <Register />,
     },
     {
       path: `${APP_PATH.SERVER_MAP}/:application?`,

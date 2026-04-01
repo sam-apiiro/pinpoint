@@ -123,6 +123,11 @@
       "USER_SEARCH_PLACEHOLDER": "Search user",
       "USER_REMOVE_TITLE": "Remove user",
       "USER_REMOVE_DESC": "Remove the following user.",
+      "REGISTRATION": {
+        "TITLE": "User registration",
+        "DESCRIPTION": "Create your Pinpoint user profile for alarms and user groups.",
+        "SUCCESS": "Registration completed successfully."
+      },
       "LABEL": {
         "USER_ADD_BUTTON": "Add user",
         "USER_ID": "USER ID",

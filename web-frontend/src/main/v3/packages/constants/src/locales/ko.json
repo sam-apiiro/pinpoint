@@ -123,6 +123,11 @@
       "USER_SEARCH_PLACEHOLDER": "사용자 검색",
       "USER_REMOVE_TITLE": "사용자 삭제",
       "USER_REMOVE_DESC": "다음 사용자를 삭제합니다.",
+      "REGISTRATION": {
+        "TITLE": "사용자 등록",
+        "DESCRIPTION": "알람 및 사용자 그룹용 Pinpoint 사용자 프로필을 생성합니다.",
+        "SUCCESS": "등록이 완료되었습니다."
+      },
       "LABEL": {
         "USER_ADD_BUTTON": "사용자 등록",
         "USER_ID": "사용자 ID",

@@ -112,3 +112,29 @@ export const useDeleteConfigUser = (
     ...options,
   });
 };
+
+export const usePostPublicUserRegistration = (
+  options?: UseMutationOptions<unknown, ErrorResponse, ConfigUsers.User, unknown>,
+) => {
+  const postData = async (formData: ConfigUsers.User) => {
+    const response = await fetch(`${END_POINTS.PUBLIC_USER_REGISTER}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw errorData;
+    }
+
+    return response.json();
+  };
+
+  return useMutation({
+    mutationFn: postData,
+    ...options,
+  });
+};

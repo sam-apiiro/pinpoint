@@ -3,6 +3,7 @@ export * from './ErrorAnalysis';
 export * from './Inspector';
 export * from './NotFound404';
 export * from './OpenTelemetry';
+export * from './RegisterUser';
 export * from './ScatterFullScreen';
 export * from './SystemMetric';
 export * from './TransactionList';
