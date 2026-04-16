@@ -34,6 +34,7 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @ComponentScan(basePackages = {
         "com.navercorp.pinpoint.web.service",
+        "com.navercorp.pinpoint.web.calendar.service",
 })
 @Import({
         HyperLinkConfiguration.class,

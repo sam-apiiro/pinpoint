@@ -31,6 +31,11 @@ pinpoint:
   web:
     agent-status:
       legacy-agent-support: true
+  calendar:
+    google:
+      base-url: https://www.googleapis.com
+      calendar-id: primary
+      oauth-access-token: ${GOOGLE_CALENDAR_OAUTH_ACCESS_TOKEN:}
 
 hbase:
   client:

@@ -78,3 +78,19 @@ CREATE TABLE `webhook_send` (
   `rule_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`webhook_send_info_id`)
 );
+
+CREATE TABLE `user_calendar_event` (
+  `number` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` VARCHAR(128) NOT NULL,
+  `event_id` VARCHAR(255) NOT NULL,
+  `summary` VARCHAR(1000) DEFAULT NULL,
+  `html_link` VARCHAR(2000) DEFAULT NULL,
+  `start_time_millis` BIGINT NOT NULL,
+  `end_time_millis` BIGINT NOT NULL,
+  `updated_time_millis` BIGINT NOT NULL DEFAULT 0,
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`number`)
+);
+ALTER TABLE user_calendar_event ADD UNIQUE KEY user_id_event_id_start_idx (`user_id`, `event_id`, `start_time_millis`);
+ALTER TABLE user_calendar_event ADD INDEX user_id_start_time_idx (`user_id`, `start_time_millis`);
