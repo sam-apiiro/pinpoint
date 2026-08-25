@@ -12,6 +12,16 @@
 
     <packaging>jar</packaging>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>2.7.34</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <properties>
         <pinpoint.agent.jvmargument>
             ${pinpoint.agent.default.jvmargument}
