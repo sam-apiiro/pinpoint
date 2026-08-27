@@ -63,7 +63,7 @@ public class JtdsJdbcUrlParser implements JdbcUrlParserV2 {
     private DatabaseInfo parse0(String url) {
 //        jdbc:jtds:sqlserver://10.xx.xx.xx:1433;DatabaseName=CAFECHAT;sendStringParametersAsUnicode=false;useLOBs=false;loginTimeout=3
 //        jdbc:jtds:sqlserver://server[:port][/database][;property=value[;...]]
-//        jdbc:jtds:sqlserver://server/db;user=userName;password=password
+//        jdbc:jtds:sqlserver://server/db;user=userName;password=<password>
         StringMaker maker = new StringMaker(url);
 
         maker.lower().after(URL_PREFIX);
