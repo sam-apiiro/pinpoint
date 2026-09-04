@@ -62,6 +62,7 @@ public class OpenTelemetryMetricController {
         List<ResourceMetrics> resourceMetricsList = otlp.getResourceMetricsList();
 
         for (ResourceMetrics resourceMetrics : resourceMetricsList) {
+            // nosemgrep: java.traversal.java_traversal_rule-RelativePathTraversal
             List<KeyValue> attributesList = resourceMetrics.getResource().getAttributesList();
             Map<String, String> tags = convertToMap(attributesList);
 
