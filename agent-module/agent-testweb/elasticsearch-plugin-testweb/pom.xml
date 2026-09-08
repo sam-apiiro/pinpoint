@@ -15,9 +15,17 @@
     <packaging>jar</packaging>
 
     <properties>
+        <jdk.version>17</jdk.version>
+        <jdk.home>${env.JAVA_17_HOME}</jdk.home>
+
         <pinpoint.agent.jvmargument>
             ${pinpoint.agent.default.jvmargument}
         </pinpoint.agent.jvmargument>
+
+        <spring.version>${spring6.version}</spring.version>
+        <spring-boot.version>${spring-boot3.version}</spring-boot.version>
+
+        <spring-boot-build-skip>true</spring-boot-build-skip>
     </properties>
 
     <dependencies>
