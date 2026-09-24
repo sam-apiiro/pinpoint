@@ -29,7 +29,7 @@ public class JtdsJdbcUrlParserTest {
     @Test
     public void testParse1() throws Exception {
 //        jdbc:jtds:sqlserver://server[:port][/database][;property=value[;...]]
-//        jdbc:jtds:sqlserver://server/db;user=${USER};password=${PASSWORD}
+//        jdbc:jtds:sqlserver://server/db;user=userName;password=<password>
         String url = "jdbc:jtds:sqlserver://10.xx.xx.xx:1433;DatabaseName=CAFECHAT;sendStringParametersAsUnicode=false;useLOBs=false;loginTimeout=3";
         DatabaseInfo info = parser.parse(url);
         Assertions.assertTrue(info.isParsingComplete());
@@ -82,7 +82,7 @@ public class JtdsJdbcUrlParserTest {
     @Test
     public void testParse5() throws Exception {
 //        jdbc:jtds:sqlserver://server[:port][/database][;property=value[;...]]
-//        jdbc:jtds:sqlserver://server/db;user=${USER};password=${PASSWORD}
+//        jdbc:jtds:sqlserver://server/db;user=userName;password=<password>
         String url = "jdbc:jtds:sqlserver://10.xx.xx.xx;DatabaseName=CAFECHAT";
         DatabaseInfo info = parser.parse(url);
         Assertions.assertTrue(info.isParsingComplete());
@@ -97,7 +97,7 @@ public class JtdsJdbcUrlParserTest {
     @Test
     public void testParse6() throws Exception {
 //        jdbc:jtds:sqlserver://server[:port][/database][;property=value[;...]]
-//        jdbc:jtds:sqlserver://server/db;user=${USER};password=${PASSWORD}
+//        jdbc:jtds:sqlserver://server/db;user=userName;password=<password>
         String url = "jdbc:jtds:sqlserver://10.xx.xx.xx";
         DatabaseInfo info = parser.parse(url);
         Assertions.assertTrue(info.isParsingComplete());
