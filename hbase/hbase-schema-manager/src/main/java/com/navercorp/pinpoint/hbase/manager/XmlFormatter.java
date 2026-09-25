@@ -25,6 +25,7 @@ import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -47,8 +48,21 @@ public class XmlFormatter {
 
     private final Logger logger = LogManager.getLogger(XmlFormatter.class);
 
-    private final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+    private final DocumentBuilderFactory documentBuilderFactory = createSecureDocumentBuilderFactory();
     private final TransformerFactory transformerFactory = TransformerFactory.newInstance();
+
+    private static DocumentBuilderFactory createSecureDocumentBuilderFactory() {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        try {
+            factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+            factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+            factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+            factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+        } catch (ParserConfigurationException e) {
+            throw new IllegalStateException("Failed to configure secure DocumentBuilderFactory", e);
+        }
+        return factory;
+    }
 
     public String formatXml(String xmlString) {
         if (StringUtils.isEmpty(xmlString)) {
