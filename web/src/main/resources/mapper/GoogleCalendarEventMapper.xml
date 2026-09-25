@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.navercorp.pinpoint.web.calendar.dao.GoogleCalendarEventDao">
+
+    <delete id="deleteEventsByUserAndRange" parameterType="map">
+        DELETE FROM user_calendar_event
+        WHERE user_id = #{userId}
+          AND start_time_millis <![CDATA[ >= ]]> #{weekStartMillis}
+          AND start_time_millis <![CDATA[ < ]]> #{weekEndMillis}
+    </delete>
+
+    <insert id="insertEvents" parameterType="map">
+        INSERT INTO user_calendar_event
+        (user_id, event_id, summary, html_link, start_time_millis, end_time_millis, updated_time_millis)
+        VALUES
+        <foreach collection="events" item="event" separator=",">
+            (
+                #{userId},
+                #{event.eventId},
+                #{event.summary},
+                #{event.htmlLink},
+                #{event.startTimeMillis},
+                #{event.endTimeMillis},
+                #{event.updatedTimeMillis}
+            )
+        </foreach>
+    </insert>
+
+    <select id="selectEventsByUserAndRange" resultType="com.navercorp.pinpoint.web.calendar.vo.GoogleCalendarEvent" parameterType="map">
+        SELECT user_id AS userId,
+               event_id AS eventId,
+               summary AS summary,
+               html_link AS htmlLink,
+               start_time_millis AS startTimeMillis,
+               end_time_millis AS endTimeMillis,
+               updated_time_millis AS updatedTimeMillis
+        FROM user_calendar_event
+        WHERE user_id = #{userId}
+          AND start_time_millis <![CDATA[ >= ]]> #{weekStartMillis}
+          AND start_time_millis <![CDATA[ < ]]> #{weekEndMillis}
+        ORDER BY start_time_millis ASC
+    </select>
+</mapper>
