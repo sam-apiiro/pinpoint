@@ -188,7 +188,7 @@
 
         <!-- spring boot3 dependency -->
         <spring6.version>6.1.14</spring6.version>
-        <spring-boot3.version>3.3.5</spring-boot3.version>
+        <spring-boot3.version>3.3.20</spring-boot3.version>
         <spring-shell.version>3.2.3</spring-shell.version>
 
         <spring-cloud3.version>3.1.9</spring-cloud3.version>
@@ -234,7 +234,7 @@
         <resilience4j-jdk8.version>1.7.1</resilience4j-jdk8.version>
 
         <netty3.version>3.10.6.Final</netty3.version>
-        <netty4.version>4.1.110.Final</netty4.version>
+        <netty4.version>4.1.137.Final</netty4.version>
 
         <grpc.version>1.68.1</grpc.version>
         <grpc-bom.version>1.68.1</grpc-bom.version>
@@ -288,6 +288,8 @@
         <plugin.frontend.node.version>v16.17.1</plugin.frontend.node.version>
         <plugin.frontend.yarn.version>v1.22.19</plugin.frontend.yarn.version>
         <plugin.frontend.node.install.dir>/node_install/node-${plugin.frontend.node.version}</plugin.frontend.node.install.dir>
+
+        <tomcat.embed.version>10.1.61</tomcat.embed.version>
 
         <spring-boot-maven-plugin.attatch>false</spring-boot-maven-plugin.attatch>
     </properties>
@@ -802,6 +804,21 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-tomcat</artifactId>
                 <version>${spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-core</artifactId>
+                <version>${tomcat.embed.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-el</artifactId>
+                <version>${tomcat.embed.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-websocket</artifactId>
+                <version>${tomcat.embed.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
